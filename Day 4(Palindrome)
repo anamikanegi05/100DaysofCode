@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+#include <algorithm> //for using tolower function
+using namespace std;
+
+
+bool isPalindrome(string str) {
+		string cleaned = "";
+
+        //convert to lower case and remove unalphabetical order
+	for(char ch: str) {
+		if (isalnum(ch)) //check if a character isletter or number 
+			cleaned += tolower(ch); //convert to lowercase & cleaned string
+	}
+
+	int left =0,right = cleaned.length()-1;
+
+	while(left<right) {
+		if(cleaned[left] != cleaned[right])
+			return false;
+			left++;
+			right--;
+	}
+	return true;
+}
+	
+int main()
+{
+	string n;
+	cout<<"Enter string: ";
+	getline(cin,n);
+	if(isPalindrome(n)) {
+		cout<<"The given string is Palindrome!"<<endl;
+	}
+	else {
+		cout<<"The give string is NOT Palindrome!"<<endl;
+	}
+
+	return 0;
+}
