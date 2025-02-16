@@ -1,0 +1,43 @@
+#include <iostream>
+#include <cstring>
+#include <fstream>
+using namespace std;
+
+int main() {
+    // Open a file in append mode to store encrypted text
+    ofstream outfile("C:\\Users\\Anami\\Desktop\\Projects\\100daysofcode\\encrypt.txt", ios::app);
+    if (!outfile) {
+        cout << "ERROR not FOUND!";
+        return 1;
+    }
+    
+    string text, encrypted;
+    // Prompt the user to enter text
+    cout << "Enter text: ";
+    getline(cin, text);
+    
+    // Encrypt the text by shifting each character by 3 positions
+    cout << "Encrypted code: ";
+    for (int i = 0; text[i] != '\0'; i++) {
+        encrypted += char(text[i] + 3);
+    }
+    cout << encrypted << endl;
+    outfile << encrypted << endl;
+    outfile.close();
+    
+    // Open the file to read the stored encrypted text
+    ifstream infile("C:\\Users\\Anami\\Desktop\\Projects\\100daysofcode\\encrypt.txt");
+    if (!infile) {
+        cout << "ERROR not FOUND!";
+        return 1;
+    }
+    
+    cout << endl << "Stored Text: " << endl;
+    // Read and print each line from the file
+    while (getline(infile, encrypted)) {
+        cout << encrypted << endl;
+    }
+    infile.close();
+    
+    return 0;
+}
