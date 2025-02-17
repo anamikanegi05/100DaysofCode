@@ -1,0 +1,40 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    // Open the file to read the encrypted text
+    ifstream infile("encrypt.txt");
+    if (!infile) {
+        cout << "ERROR not FOUND!";
+        return 1;
+    }
+    
+    string encrypted, decrypted, inputpassword, storedpassword, line;
+    
+    // Read the encrypted text and stored password from the file
+    getline(infile, line);
+    size_t pos = line.find(':');
+    if (pos != string::npos) {
+        encrypted = line.substr(0, pos);
+        storedpassword = line.substr(pos + 1);
+    }
+    infile.close();
+
+    cout << "Enter your password: ";
+    getline(cin, inputpassword);
+    
+    if (inputpassword == storedpassword) {
+        cout << "Welcome again!" << endl;
+        cout << "Decrypted text: ";
+        // Decrypt the text by shifting each character back by 3 positions
+        for (int i = 0; encrypted[i] != '\0'; i++) {
+            decrypted += char(encrypted[i] - 3);
+        }
+        cout << decrypted << endl;
+    } else {
+        cout << "Password didn't match! Access denied!" << endl;
+    }
+
+    return 0;
+}
