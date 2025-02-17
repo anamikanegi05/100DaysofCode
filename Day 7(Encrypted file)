@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     // Open a file in append mode to store encrypted text
-    ofstream outfile(".txt", ios::app);
+    ofstream outfile("encrypt.txt", ios::app);
     if (!outfile) {
         cout << "ERROR not FOUND!";
         return 1;
