@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+class parents {
+public:
+
+	int a1,b1;
+	int add(int a1, int b1) {
+		return a1+b1;
+	}
+	int sub(int a1, int b1) {
+		return a1-b1;
+	}
+	float divide(float a1,float b1) {
+		return a1/b1;
+	}
+	int mul(int a1,int b1) {
+		return a1*b1;
+	}
+};
+class child: public parents {
+public:
+	int a2,b2;
+	void setvalue() {
+		cout<<"Enter value of a: ";
+		cin>>a2;
+		cout<<"Enter value of b: ";
+		cin>>b2;
+
+	}
+	void getvalue() {
+		cout<<"Sum: "<<add(a2,b2)<<endl;
+		cout<<"sub: "<<sub(a2,b2)<<endl;
+		cout<<"divide: "<<divide(a2,b2)<<endl;
+		cout<<"Mul: "<<mul(a2,b2)<<endl;
+	}
+
+};
+int main()
+{
+	child c1;
+	c1.setvalue();
+	c1.getvalue();
+
+	return 0;
+}
