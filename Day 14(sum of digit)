@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int sum(int a);
+int main()
+{
+    cout<<"Enter a no: ";
+    int a,b;
+    cin>>a;
+    int p=sum(a);
+    cout<<"Sum is: "<<p;
+    return 0;
+}
+int sum(int a)
+{
+    if(a==0)
+    return 0;
+    else
+    return (a%10 + sum (a/10));
+}
