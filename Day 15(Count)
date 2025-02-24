@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main(){
+    string name;
+    int vowel =0,digit=0,count=0;
+    cout<<"Enter name: ";
+    getline(cin,name);
+    for(int i=0;name[i]!='\0';i++){
+        if(name[i]=='a'||name[i]=='e'||name[i]=='i'||name[i]=='o'||name[i]=='u'||name[i]=='A'||name[i]=='E'||name[i]=='I'||name[i]=='O'||name[i]=='U')
+            vowel++;
+        else if(name[i]=='1'||name[i]=='2'||name[i]=='3'||name[i]=='4'||name[i]=='5'||name[i]=='6'||name[i]=='7'||name[i]=='8'||name[i]=='9'||name[i]=='0')
+            digit++;
+        else
+        count++;
+    }
+    cout<<"Vowels:: "<<vowel<<endl;
+    cout<<"Digits:: "<<digit<<endl;
+    cout<<"Remaining:: "<<count<<endl;
+   return 0;
+}
