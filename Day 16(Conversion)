@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int binaryTodecimal(int n){
+    int decimal = 0,base = 1;
+
+    while(n>0){
+        int lastBit = n % 10;
+        decimal += lastBit * base;
+        base *= 2;
+        n/=10;
+    }
+    return decimal;
+}
+int main(){
+    int binary;
+    cout<<"Enter a binary no:: ";
+    cin>>binary;
+
+    cout<<"Decimal:: "<<binaryTodecimal(binary)<<endl;
+    return 0;
+}
