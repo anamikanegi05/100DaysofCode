@@ -1,0 +1,30 @@
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+char firstNonRepeating(string str){
+    unordered_map<char,int> freq;
+    for(char ch: str){
+        freq[ch]++;
+    }
+    for(char ch:str){
+        if(freq[ch]==1){
+            return ch;
+        }
+    }
+    return '\0';
+}
+
+int main(){
+    string str;
+    cout<<"Enter a string: ";
+    getline(cin,str);
+    char result = firstNonRepeating(str);
+    if(result!='\0'){
+        cout<<"First non-repeating number: "<<result<<endl;
+    }
+    else{
+        cout<<"Not found!"<<endl;
+    }
+    return 0;
+}
