@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+int findMajorityNumber(int arr[],int n){
+    int count=0,candidate = -1;
+    for(int i=0; i<n; i++){
+        if(count==0){
+            candidate = arr[i];
+            count = 1;
+        }
+        else if(arr[i] == candidate){
+            count++;
+        }
+        else{
+            count--;
+        }
+    }
+    count=0;
+    for(int i=0; i<n; i++){
+        if(arr[i] == candidate)
+            count++;
+    }
+        return (count >= n / 2) ? candidate : -1;
+    }
+int main(){
+    int n;
+    cout<<"Enter size: ";
+    cin>>n;
+    int arr[n];
+    cout<<"Enter elements: ";
+    for(int i=0; i<n; i++){
+        cin>>arr[i];
+    }
+    int result = findMajorityNumber(arr,n);
+    if(result == -1){
+        cout<<"No Majority element!"<<endl;
+    }
+    else{
+        cout<<"Majority element: "<<result<<endl;
+    }
+    return 0;
+}
