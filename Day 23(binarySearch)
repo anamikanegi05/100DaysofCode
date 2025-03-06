@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+#define MAX 100
+
+int binarySearch(int arr[],int n,int key){
+
+    int beg = 0,end = n-1;
+
+    while(beg <= end){
+
+    int mid = (beg + end) / 2;
+
+        if(arr[mid] == key){
+        return mid;
+        }
+
+        else if(arr[mid] >  key){
+            end = mid -1;
+        }
+        
+        else{
+            beg = mid+1;
+           }
+        }
+return -1;
+}
+   
+int main(){
+    int arr[MAX],n,key;
+    
+    cout<<"Enter size: ";
+    cin>>n;
+
+    cout<<"Enter elements in sorted order: ";
+    for(int i=0; i<n ; i++){
+        cin>>arr[i];
+    }
+
+    cout<<"Enter target key: ";
+    cin>>key;
+
+    int result = binarySearch(arr,n,key);
+
+    if(result != -1)
+    cout<<"The key element is present at index "<<result<<endl;
+    else
+    cout<<"The given key element is not present!";
+
+    return 0;
+}
