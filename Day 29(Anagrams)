@@ -1,0 +1,28 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    string a,b;
+
+    cout<<"Enter first string:: ";
+    getline(cin,a);
+
+    cout<<"Enter second string:: ";
+    getline(cin,b);
+
+    transform(a.begin(), a.end(), a.begin(), ::tolower);
+    transform(b.begin(), b.end(), b.begin(), ::tolower);
+
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
+
+        if(a == b){
+            cout<<"The given two strings are Anagrams!"<<endl;
+        }
+        else{
+            cout<<"The given two strings are not Anagrams!"<<endl;
+        }
+
+    return 0;
+}
