@@ -1,0 +1,44 @@
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <map>
+using namespace std;
+
+ int main(){
+    ofstream outfile("file.txt",ios::app);
+    if(!outfile){
+        cout<<"File not found!";
+    }
+
+    string m;
+    cout<<"Enter text:: ";
+    getline(cin,m);
+
+    transform(m.begin(),m.end(),m.begin(), ::tolower);
+
+    outfile<<m<<endl;
+    cout<<"Text added successfully!"<<endl;
+    outfile.close();
+
+    ifstream infile("file.txt");
+    if(!infile){
+        cout<<"file mot found!";
+    }
+
+    int count = 1;
+    string word;
+    map<string, int> wordFrequency;
+
+    while(infile>>word){
+    wordFrequency[word]++;
+    }
+
+    infile.close();
+
+    cout<<"Word Frequency Count:: "<<endl;
+    for(auto it : wordFrequency){
+        cout << it.first << " -> " << it.second << endl;
+    }
+    
+    return 0;
+ }
