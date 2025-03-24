@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+void Age(int bd, int bm, int by,int cd, int cm, int cy) {
+    
+    int day, month, year;
+
+    if (bd > cd) {
+        cd += 30;
+        cm -= 1;
+    }
+    day = cd - bd;
+
+    if (bm > cm) {
+        cm += 12;
+        cy -= 1;
+    }
+    month = cm - bm;
+    year = cy - by;
+
+    cout << "Your exact age is: " << year << " years, " 
+         << month << " months, and " << day << " days old" << endl;
+}
+
+int main() {
+    int bd, bm, by;
+    int cd, cm, cy;
+
+    cout << "Enter birth date (DD MM YYYY): ";
+    cin >> bd >> bm >> by;
+
+    cout << "Enter current date (DD MM YYYY): ";
+    cin >> cd >> cm >> cy;
+
+    if (by> cy || 
+       (by == cy && bm > cm) || 
+       (by == cy && bm == cm && bd > cd)) {
+        cout << "Invalid input! " << endl;
+    } else {
+        Age(bd,bm,by,cd,cm,cy);    }
+
+    return 0;
+}
