@@ -1,0 +1,32 @@
+#include<iostream>
+#include<unordered_map>
+#include<string>
+using namespace std;
+
+int main(){
+    string roman;
+    cout<<"Enter roman no: ";
+    cin>>roman;
+
+    unordered_map<char, int>romanMap;
+    romanMap['I'] = 1;
+    romanMap['V'] = 5;
+    romanMap['X'] = 10;
+    romanMap['L'] = 50;
+    romanMap['C'] = 100;
+    romanMap['D'] = 500;
+    romanMap['M'] = 1000;
+
+    int finalNo=0;
+    for(int i=0; i<roman.length(); i++){
+        if(romanMap[roman[i]]<romanMap[roman[i+1]]){
+            finalNo -= romanMap[roman[i]];
+        }
+        else{
+            finalNo = finalNo + romanMap[roman[i]];
+        }
+    }
+    cout<<"The integer is: "<<finalNo;
+
+    return 0;
+}
